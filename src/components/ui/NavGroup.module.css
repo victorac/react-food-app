@@ -1,0 +1,4 @@
+.navGroup {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,6 @@
+.cartLink {
+    border-radius: 16px;
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    padding: 0.5rem 2rem;
+}

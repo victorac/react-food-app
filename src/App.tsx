@@ -2,15 +2,9 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
 import Cart from "./components/Meals/Cart";
+import MealsNavBar from "./components/Meals/MealsNavBar";
 import Menu from "./components/Meals/Menu";
-import Navbar from "./components/ui/Navbar";
-
-type FoodItem = {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-};
+import { FoodItem } from "./types";
 
 interface MenuInterface {
   [index: string]: FoodItem;
@@ -37,49 +31,10 @@ const DUMMY_MENU: MenuInterface = {
   },
 };
 
-type CartItem = FoodItem & { quantity: number };
-
-interface CartInterface {
-  [index: string]: CartItem;
-}
-
-const removeItem = (cart: CartInterface, id: string) => {
-  const updatedCart: CartInterface = {};
-  for (const i in cart) {
-    if (i !== id) {
-      updatedCart[i] = { ...cart[i] };
-    }
-  }
-  return updatedCart;
-};
-
-const updateItem = (cart: CartInterface, item: CartItem) => {
-  const updatedCart: CartInterface = {};
-  for (const i in cart) {
-    updatedCart[i] = { ...cart[i] };
-  }
-  updatedCart[item.id] = { ...item };
-  return updatedCart;
-};
-
 function App() {
-  const x = { a: 1 };
-
-  const [cart, setCart] = useState<CartInterface>({});
-
-  const updateCart = (id: string, quantity: number) => {
-    const item = { ...cart[id] };
-    item.quantity += quantity;
-    if (item.quantity <= 0) {
-      setCart((prevCart) => removeItem(prevCart, id));
-    } else {
-      setCart((prevCart) => updateItem(prevCart, item));
-    }
-  };
-
   return (
     <div>
-      <Navbar />
+      <MealsNavBar />
       {ReactDOM.createPortal(<Cart />, document.getElementById("modal-root")!)}
       <Menu />
     </div>
