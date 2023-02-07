@@ -5,10 +5,5 @@ export type FoodItem = {
   price: string;
 };
 
-export type CartItem = FoodItem & { quantity: number };
+export type CartInfo = Record<string, number>;
 
-export interface CartInfo {
-    [index: string]: CartItem;
-}
-
-export type MealCart = Record<string, CartItem>

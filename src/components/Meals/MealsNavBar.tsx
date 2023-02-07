@@ -8,7 +8,7 @@ interface Props {}
 const MealsNavBar: React.FC<Props> = () => {
   return (
     <Navbar className={`${classes.mealsNavBar}`}>
-      <span>Food shop!</span>
+      <span className={`${classes.title}`}>Food shop!</span>
       <NavGroup>
         <CartLink />
       </NavGroup>

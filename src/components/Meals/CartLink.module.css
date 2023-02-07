@@ -4,3 +4,22 @@
     color: white;
     padding: 0.5rem 2rem;
 }
+
+.cartButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 678px) {
+    .cartButton {
+        align-items: center;
+    }
+}
+
+.badge {
+    border-radius: 12px;
+    padding: 4px 14px;
+    background-color: rgb(171, 134, 206);
+}

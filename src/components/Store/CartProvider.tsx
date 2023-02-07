@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from "react";
-import { CartInfo, CartItem, MealCart } from "../../types";
+import { createContext, useState } from "react";
+import { CartInfo } from "../../types";
 
 const CartContext = createContext({
-  cart: {} as MealCart,
+  cart: {} as CartInfo,
   updateCart: (id: string, quantity: number) => {},
 });
 
@@ -11,35 +11,20 @@ interface Props {
 }
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useState<MealCart>({});
-
-  const removeItem = (cart: CartInfo, id: string) => {
-    const updatedCart: CartInfo = {};
-    for (const i in cart) {
-      if (i !== id) {
-        updatedCart[i] = { ...cart[i] };
-      }
-    }
-    return updatedCart;
-  };
-
-  const updateItem = (cart: CartInfo, item: CartItem) => {
-    const updatedCart: CartInfo = {};
-    for (const i in cart) {
-      updatedCart[i] = { ...cart[i] };
-    }
-    updatedCart[item.id] = { ...item };
-    return updatedCart;
-  };
-
+  const [cart, setCart] = useState<CartInfo>({});
   const updateCart = (id: string, quantity: number) => {
-    const item = { ...cart[id] };
-    item.quantity += quantity;
-    if (item.quantity <= 0) {
-      setCart((prevCart) => removeItem(prevCart, id));
-    } else {
-      setCart((prevCart) => updateItem(prevCart, item));
-    }
+    setCart((prevCart) => {
+      if ((prevCart[id] ?? 0) + quantity <= 0) {
+        delete prevCart[id];
+        return { ...prevCart };
+      }
+      const newCart = {} as CartInfo;
+      newCart[id] = (prevCart[id] ?? 0) + quantity; 
+      return {
+        ...prevCart,
+        ...newCart,
+      };
+    });
   };
 
   return (
@@ -53,3 +38,5 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+export default CartContext;
