@@ -18,11 +18,9 @@ const Cart: React.FC<Props> = ({ show, onDismiss }) => {
   const orderHandler = () => {};
   return (
     <Modal show={show} onDismiss={onDismiss} className={`${classes.cart}`}>
-      {/* <h1>Hello there!</h1> */}
       {Object.keys(cart).map(id => {
-        return <CartItem id={id} title={menu[id].title} price={menu[id].price} quantity={cart[id].toString()} onUpdateQuantity={cartContext.updateCart}/>
+        return <CartItem key={`${id}-cartItem`} id={id} title={menu[id].title} price={menu[id].price} quantity={cart[id].toString()} onUpdateQuantity={cartContext.updateCart}/>
       })}
-      {/* <CartItem id="1" title="hello!" price="9.99" quantity= onUpdateQuantity={cartContext.updateCart}></CartItem> */}
       <div className={`${classes.actions}`}>
         <button onClick={onDismiss} className={`${classes.actionButton} ${classes.closeButton}`}>close</button>
         <button onClick={orderHandler} className={`${classes.actionButton} ${classes.orderButton}`}>order</button>
