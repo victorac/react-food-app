@@ -1,0 +1,40 @@
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartItemInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.itemInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: rgb(42,42,42);
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.price {
+    color: rgb(190, 105, 105);
+    font-weight: bold;
+    
+}
+
+.badge {
+    background-color: white;
+    display: inline;
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
+.itemAction {
+
+}

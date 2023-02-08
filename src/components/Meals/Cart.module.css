@@ -1,0 +1,24 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.actions {
+    align-self: flex-end;
+}
+
+.actionButton {
+    margin-left: 1rem;
+}
+
+.closeButton {
+    border: 2px solid rgb(231, 161, 161);
+}
+
+.orderButton {
+    background-color: rgb(200, 240, 192);
+    border: 2px solid black;
+}
