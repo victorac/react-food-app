@@ -9,7 +9,7 @@ interface Props {
 
 const Menu: React.FC<Props> = () => {
     const update = () => {
-        context.updateCart("1", 2);
+        context.updateCart("f1", 1);
     }
     const context = useContext(CartContext);
     return <div>
