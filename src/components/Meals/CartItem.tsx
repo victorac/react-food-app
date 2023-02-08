@@ -20,30 +20,33 @@ const CartItem: React.FC<Props> = ({
   };
 
   return (
-    <div className={`${classes.cartItem}`}>
-      <div className={`${classes.cartItemInfo}`}>
-        <div className={`${classes.itemInfo}`}>
-          <span className={`${classes.title}`}>{title}</span>
-          <span className={`${classes.price}`}>${price}</span>
+    <div>
+      <div className={`${classes.cartItem}`}>
+        <div className={`${classes.cartItemInfo}`}>
+          <div className={`${classes.itemInfo}`}>
+            <span className={`${classes.title}`}>{title}</span>
+            <span className={`${classes.price}`}>${price}</span>
+          </div>
+          <div className={`${classes.badge}`}>
+            <span> x{quantity} </span>
+          </div>
         </div>
-        <div className={`${classes.badge}`}>
-          <span> x{quantity} </span>
+        <div className={`${classes.itemActions}`}>
+          <button
+            className={`${classes.itemAction}`}
+            onClick={() => updateItemQuantity(-1)}
+          >
+            -
+          </button>
+          <button
+            className={`${classes.itemAction}`}
+            onClick={() => updateItemQuantity(1)}
+          >
+            +
+          </button>
         </div>
       </div>
-      <div className={`${classes.itemActions}`}>
-        <button
-          className={`${classes.itemAction}`}
-          onClick={() => updateItemQuantity(-1)}
-        >
-          -
-        </button>
-        <button
-          className={`${classes.itemAction}`}
-          onClick={() => updateItemQuantity(1)}
-        >
-          +
-        </button>
-      </div>
+      <hr className="solid" />
     </div>
   );
 };

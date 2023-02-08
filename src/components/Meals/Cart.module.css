@@ -22,3 +22,11 @@
     background-color: rgb(200, 240, 192);
     border: 2px solid black;
 }
+
+.total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: x-large;
+    font-weight: bold;
+}
