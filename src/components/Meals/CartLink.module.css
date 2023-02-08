@@ -19,6 +19,7 @@
 }
 
 .badge {
+    min-width: 3rem;
     border-radius: 12px;
     padding: 4px 14px;
     background-color: rgb(171, 134, 206);

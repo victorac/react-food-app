@@ -1,7 +1,4 @@
-import { useState } from "react";
-import ReactDOM from "react-dom";
 import "./App.css";
-import Cart from "./components/Meals/Cart";
 import MealsNavBar from "./components/Meals/MealsNavBar";
 import Menu from "./components/Meals/Menu";
 import { FoodItem } from "./types";
@@ -35,7 +32,6 @@ function App() {
   return (
     <div>
       <MealsNavBar />
-      {ReactDOM.createPortal(<Cart />, document.getElementById("modal-root")!)}
       <Menu />
     </div>
   );
