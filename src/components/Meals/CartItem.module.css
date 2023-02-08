@@ -35,6 +35,15 @@
     padding: 2px 10px;
 }
 
-.itemAction {
+.itemActions {
+    display: inline;
+}
 
+.itemAction {
+    border: 1px solid rgb(190, 105, 105);
+    border-radius: 10px;
+    padding: 0px;
+    padding-bottom: 3px;
+    margin-left: 5px;
+    width: 2rem;
 }
