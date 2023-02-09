@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import CartContext from "../Store/CartProvider";
 import MenuContext from "../Store/MenuProvider";
 import Button from "../ui/Button";
+import classes from "./Menu.module.css";
 
 interface Props {}
 
@@ -24,29 +25,37 @@ const Menu: React.FC<Props> = () => {
   };
 
   return (
-    <div>
+    <div className={`${classes.menu}`}>
       <ul>
         {Object.keys(menu).map((id) => {
           return (
             <li key={`${id}-li`}>
-              <div>
-                <div>{menu[id].title}</div>
-                <div>{menu[id].description}</div>
-                <div>{menu[id].price}</div>
+              <div className={`${classes.item}`}>
+                <div className={`${classes.itemInfo}`}>
+                  <span className={`${classes.title}`}>{menu[id].title}</span>
+                  <span className={`${classes.description}`}>
+                    {menu[id].description}
+                  </span>
+                  <span className={`${classes.price}`}>{menu[id].price}</span>
+                </div>
+                <div className={`${classes.itemAction}`}>
+                  <div>
+                    <label>Amount</label>
+                    <input
+                      className={`${classes.actionInput}`}
+                      id={`${id}-amount`}
+                      type="number"
+                      min={0}
+                      step={1}
+                      onChange={amountChangeHandler}
+                    />
+                  </div>
+                  <button type="button" onClick={() => addItemHandler(id)}>
+                    + Add
+                  </button>
+                </div>
               </div>
-              <div>
-                <label>Amount</label>
-                <input
-                  id={`${id}-amount`}
-                  type="number"
-                  min={0}
-                  step={1}
-                  onChange={amountChangeHandler}
-                ></input>
-                <button type="button" onClick={() => addItemHandler(id)}>
-                  + Add
-                </button>
-              </div>
+              <hr className="solid" />
             </li>
           );
         })}

@@ -1,0 +1,49 @@
+.menu {
+  width: 95%;
+  margin: auto;
+}
+.menu ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+@media (min-width: 678px) {
+  .menu {
+    width: 30rem;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.title {
+}
+
+.description {
+  text-align: start;
+}
+
+.price {
+}
+
+.itemAction {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.actionInput {
+  margin-left: .5rem;
+  width: 3rem;
+}
