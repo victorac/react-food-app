@@ -9,7 +9,6 @@ interface Props {}
 const Menu: React.FC<Props> = () => {
   const [formAmount, setFormAmount] = useState<Record<string, string>>({});
   const menu = useContext(MenuContext).menu;
-  const update = () => {};
   const context = useContext(CartContext);
   const amountChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = event.target.id.split("-")[0];
@@ -21,7 +20,9 @@ const Menu: React.FC<Props> = () => {
   };
 
   const addItemHandler = (id: string) => {
-    context.updateCart(id, Number(formAmount[id]));
+    if (formAmount[id]) {
+      context.updateCart(id, Number(formAmount[id]));
+    }
   };
 
   return (
@@ -36,7 +37,7 @@ const Menu: React.FC<Props> = () => {
                   <span className={`${classes.description}`}>
                     {menu[id].description}
                   </span>
-                  <span className={`${classes.price}`}>{menu[id].price}</span>
+                  <span className={`${classes.price}`}>${menu[id].price}</span>
                 </div>
                 <div className={`${classes.itemAction}`}>
                   <div>
@@ -60,7 +61,6 @@ const Menu: React.FC<Props> = () => {
           );
         })}
       </ul>
-      <button onClick={update}>Hello</button>
     </div>
   );
 };
